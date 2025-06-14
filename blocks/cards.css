@@ -1,7 +1,7 @@
 .cards {
   display: grid;
   flex-direction: column;
-  padding-top: 20px;
+  padding: 20px 0 40px;
   border-bottom: 1px solid rgba(33, 33, 33, 0.4);
 }
 .cards__list {
@@ -18,10 +18,12 @@
   .cards {
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
   }
 
   .cards__list {
     grid-template-columns: repeat(auto-fit, 288px);
     margin: 16px 20px;
+    row-gap: 20px;
   }
 }
