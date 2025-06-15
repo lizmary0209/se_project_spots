@@ -32,6 +32,7 @@
   opacity: 0.4;
   border: none;
   transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .card__like-btn:hover {
