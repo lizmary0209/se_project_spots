@@ -39,10 +39,10 @@ position: relative;
     }
 
     .modal__title {
-margin: 0 0 32px;
-font-weight: 500;
-font-size: 32px;
-line-height: 100%;
+    margin: 0 0 32px;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 100%;
     }
 
     .modal__form {
@@ -65,10 +65,10 @@ line-height: 100%;
         font-weight: 500;
         font-size: 20px;
         line-height: 100%;
-        color: #2121214D;
         border-radius: 8px;
         padding:16px 12px;
-        box-sizing: border-box; 
+        box-sizing: border-box;
+        text-align: left; 
     }
 
     .modal__input::placeholder {
