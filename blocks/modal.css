@@ -10,10 +10,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 10px;
+visibility:hidden;
+opacity:0;
+transition:visibility 0s linear 0.5s,opacity 0.5s linear;
 }
 
 .modal_is-opened {
 visibility: visible;
+opacity:1;
+transition-delay:0s;
+
 }
 
 .modal__container {
@@ -46,8 +52,8 @@ position: relative;
     }
 
     .modal__form {
-        display: flex;
-        flex-direction: column;
+     display: flex;
+    flex-direction: column;
     }
 
     .modal__label {
@@ -60,15 +66,16 @@ position: relative;
 
     .modal__input {
         display: block;
-        margin: 8px 0 0;
         width:100%;
-        font-weight: 500;
+        margin: 0 0 8px;
+         padding: 16px 0 16px 12px;
+         font-weight: 500;
         font-size: 20px;
-        line-height: 100%;
+        line-height: 1.2;
         border-radius: 8px;
-        padding:16px 12px;
         box-sizing: border-box;
-        text-align: left; 
+        text-align: left;
+        vertical-align: baseline; 
     }
 
     .modal__input::placeholder {

@@ -8,7 +8,7 @@ const editDescriptionInput = editProfileModal.querySelector("#profile-descriptio
 const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
-const newPostModalBtn = newPostModal.querySelector("#new-post-modal");
+const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostImageInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#caption-input");
 
@@ -48,13 +48,13 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
     evt.preventDefault();
-    newPostModalBtn.classList.remove("modal_is-opened");
-    console.log("newPostImageInput.value");
-    console.log("newPostCaption.value");
+    newPostModal.classList.remove("modal_is-opened");
+    console.log(newPostImageInput.value);
+    console.log(newPostCaption.value);
     console.log("submitting");
 }
 
-newPostBtn.addEventListener("submit", handleNewPostSubmit);
+newPostForm.addEventListener("submit", handleNewPostSubmit);
 
 
 
