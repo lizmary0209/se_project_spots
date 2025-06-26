@@ -9,11 +9,12 @@ const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
-const newPostImageInput = newPostModal.querySelector("#card-image-input");
-const newPostCaptionInput = newPostModal.querySelector("#caption-input");
 
 const profileNameEl = document.querySelector(".profile__name"); 
 const profileDescriptionEl = document.querySelector(".profile__description");
+
+const newPostCaption = document.querySelector("#caption-input");
+const newPostImageInput = document.querySelector("#card-image-input");
 
 
 editProfileBtn.addEventListener("click", function() {
@@ -55,6 +56,8 @@ function handleNewPostSubmit(evt) {
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
+
+
 
 
 
