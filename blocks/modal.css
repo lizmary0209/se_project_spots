@@ -103,6 +103,22 @@
   cursor: pointer;
 }
 
+.modal__container {
+  position: relative;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.modal__caption {
+  color: white;
+}
+
 @media screen and (max-width: 627px) {
   .modal__container {
     padding: 22px 12px 12px;
