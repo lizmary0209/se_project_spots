@@ -121,11 +121,19 @@
 }
 
 .modal__caption {
+  margin-top: 8px;
   color: #ffffff;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
+  background-color: #212121;
+  max-width: 198px;
+  height: 24px;
+  padding: 8px 4px;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
 }
 
 .modal__close_type_preview {
@@ -182,5 +190,12 @@
 
   .modal__image {
     max-width: unset;
+  }
+
+  .modal__caption {
+    font-size: 16px;
+    line-height: 1.2;
+    max-width: 159px;
+    height: 19px;
   }
 }
