@@ -24,6 +24,10 @@
   display: block;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__content {
   display: flex;
   align-items: center;

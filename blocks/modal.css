@@ -128,8 +128,10 @@
   font-size: 20px;
   line-height: 1.2;
   background-color: #212121;
-  max-width: 198px;
-  height: 24px;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  margin: 0;
   padding: 8px 4px;
   border-radius: 8px;
   border: none;
