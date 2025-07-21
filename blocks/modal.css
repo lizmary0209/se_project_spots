@@ -72,6 +72,7 @@
   font-size: 16px;
   line-height: 110%;
   color: #212121b2;
+  display: block;
 }
 
 .modal__input {
@@ -90,6 +91,14 @@
 
 .modal__input::placeholder {
   color: #2121214d;
+}
+
+.modal__error {
+  display: block;
+  color: #ff0000;
+  font-size: 16px;
+  line-height: 110%;
+  margin-top: 8px;
 }
 
 .modal__submit-btn {
