@@ -55,7 +55,7 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form class="modal__form">
+          <form class="modal__form" novalidate>
             <label for="profile-name-input" class="modal__label"
               >Name
               <input
@@ -85,7 +85,9 @@
                 class="modal__error"
               ></span>
             </label>
-            <button type="submit" class="modal__submit-btn">Save</button>
+            <button type="submit" class="modal__submit-btn" disabled>
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -93,7 +95,7 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">New post</h2>
-          <form class="modal__form" id="new-post-form">
+          <form class="modal__form" id="new-post-form" novalidate>
             <label for="card-image-input" class="modal__label"
               >Image link
               <input
