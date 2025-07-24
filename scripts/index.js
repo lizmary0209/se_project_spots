@@ -70,7 +70,7 @@ function getCardElement(data) {
   const cardImageEl = cardElement.querySelector(".card__image");
 
   cardImageEl.src = data.link;
-  cardTitleEl.alt = data.name;
+  cardImageEl.alt = data.name;
   cardTitleEl.textContent = data.name;
 
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
