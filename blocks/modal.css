@@ -90,23 +90,20 @@
 }
 
 .modal__input_type_error {
-  border: 1px solid rgba(255, 0, 0, 0.6);
+  border: 1px solid #ff0000 0.6;
 }
 
 .modal__input::placeholder {
   color: #2121214d;
 }
 
-.modal__error_visible {
+.modal__error {
   display: block;
   color: #ff0000;
+  opacity: 0.7;
   font-size: 16px;
   line-height: 110%;
   margin-top: 8px;
-}
-
-.modal__error {
-  display: none;
 }
 
 .modal__submit-btn {
