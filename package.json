@@ -12,11 +12,10 @@
   },
   "license": "ISC",
   "author": "Lizmary Chardon",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --config webpack.config.cjs --mode development"
   },
   "devDependencies": {
     "@babel/core": "7.18.9",
