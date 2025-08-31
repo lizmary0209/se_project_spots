@@ -10,13 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/lizmary0209/se_project_spots.git"
   },
-  "license": "ISC",
-  "author": "Lizmary Chardon",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack serve --config webpack.config.cjs --mode development"
+    "build": "webpack --config ./src/webpack.config.cjs --mode production",
+    "dev": "webpack serve --config ./src/webpack.config.cjs --mode development"
   },
+  "author": "TripleTen",
+  "license": "ISC",
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/preset-env": "7.18.9",
@@ -28,9 +28,9 @@
     "html-webpack-plugin": "5.5.0",
     "mini-css-extract-plugin": "2.6.1",
     "postcss-loader": "7.0.1",
-    "webpack": "^5.101.3",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^5.2.2"
+    "webpack": "5.76.0",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.9.3"
   },
   "dependencies": {
     "core-js": "3.23.5"
