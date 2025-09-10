@@ -40,11 +40,11 @@
 }
 
 .profile__avatar {
-  width: 100%;
-  height: 100%;
+  width: 190px;
+  height: 190px;
   object-fit: cover;
   border-radius: 8px;
-  display: block;
+  margin-right: 20px;
 }
 
 .profile__avatar-btn::after {
@@ -54,6 +54,7 @@
 .profile__column {
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .profile__name {
@@ -147,19 +148,43 @@
     max-width: 288px;
   }
 
-  .profile__avatar-btn {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .profile__avatar-btn::after {
-    content: "";
+  .profile__avatar-container {
+    position: relative;
+    height: 80px;
+    width: 80px;
   }
 
   .profile__avatar {
     margin: 0 0 12px;
     height: 80px;
     width: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .profile__avatar-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 0;
+    width: 23.34px;
+    height: 23.34px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: rgba(33, 33, 33, 0.6);
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .profile__avatar-btn::after {
+    content: "";
   }
 
   .profile__name {

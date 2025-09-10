@@ -22,6 +22,7 @@ const editProfileModal = document.querySelector("#edit-profile-modal");
 const newPostModal = document.querySelector("#new-post-modal");
 const previewModal = document.querySelector("#preview-modal");
 const avatarModal = document.querySelector("#avatar-modal");
+const deleteModal = document.querySelector("#delete-modal");
 
 const modals = document.querySelectorAll(".modal");
 
@@ -104,7 +105,31 @@ function getCardElement(data) {
 
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
   cardDeleteBtnEl.addEventListener("click", () => {
-    cardElement.remove();
+    openModal(deleteModal);
+
+    const confirmDeleteBtn = deleteModal.querySelector(
+      "#modal__delete-form button[type='submit']"
+    );
+    const cancelDeleteBtn = deleteModal.querySelector(
+      "#modal__delete-form button[type='button']"
+    );
+
+    const confirmHandler = (evt) => {
+      evt.preventDefault();
+      cardElement.remove();
+      closeModal(deleteModal);
+      confirmDeleteBtn.removeEventListener("click", confirmHandler);
+      cancelDeleteBtn.removeEventListener("click", cancelHandler);
+    };
+
+    const cancelHandler = () => {
+      closeModal(deleteModal);
+      confirmDeleteBtn.removeEventListener("click", confirmHandler);
+      cancelDeleteBtn.removeEventListener("click", cancelHandler);
+    };
+
+    confirmDeleteBtn.addEventListener("click", confirmHandler);
+    cancelDeleteBtn.addEventListener("click", cancelHandler);
   });
 
   cardImageEl.addEventListener("click", () => {
