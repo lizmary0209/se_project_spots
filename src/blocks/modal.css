@@ -226,7 +226,7 @@
   color: #212121;
 }
 
-.modal__cancel-btn {
+#modal__delete-form .modal__cancel-btn {
   height: 52px;
   width: 156px;
   background-color: white;
@@ -245,7 +245,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.modal__cancel-btn:hover {
+#modal__delete-form .modal__cancel-btn:hover {
   background-color: #212121;
   color: #ffffff;
 }
@@ -271,7 +271,7 @@
 
 @media screen and (max-width: 627px) {
   .modal__container {
-    max-width: 320px;
+    max-width: 427px;
     padding: 22px 12px;
   }
 
@@ -280,6 +280,7 @@
     font-weight: 500;
     line-height: 120%;
     max-width: 250px;
+    margin: 12px 12px 12px 0;
   }
 
   .modal__input {
@@ -293,6 +294,7 @@
   }
 
   .modal__close-btn {
+    position: absolute;
     top: 12px;
     right: 12px;
   }

@@ -4,6 +4,7 @@ class Api {
     this._headers = headers;
   }
 
+  // --- Private helper for handling responses ---
   _handleResponse(res) {
     if (res.ok) {
       return res.json();
@@ -11,20 +12,17 @@ class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
+  // --- General App Info ---
   getAppInfo() {
+    // Fetch user info and cards at the same time
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
-  getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    }).then((res) => this._handleResponse(res));
-  }
-
+  // --- User Info ---
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then((res) => this._handleResponse(res));
+    }).then(this._handleResponse);
   }
 
   editUserInfo({ name, about }) {
@@ -32,15 +30,7 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ name, about }),
-    }).then((res) => this._handleResponse(res));
-  }
-
-  addNewCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({ name, link }),
-    }).then((res) => this._handleResponse(res));
+    }).then(this._handleResponse);
   }
 
   updateAvatar({ avatar }) {
@@ -48,6 +38,42 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ avatar }),
+    }).then(this._handleResponse);
+  }
+
+  // --- Cards ---
+  getInitialCards() {
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers,
+    }).then(this._handleResponse);
+  }
+
+  addNewCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({ name, link }),
+    }).then(this._handleResponse);
+  }
+
+  deleteCard({ id }) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._handleResponse);
+  }
+
+  addLike(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then((res) => this._handleResponse(res));
+  }
+
+  removeLike(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
     }).then((res) => this._handleResponse(res));
   }
 }
