@@ -1,4 +1,3 @@
-// ================== IMPORTS ==================
 import "./index.css";
 import {
   enableValidation,
@@ -8,7 +7,6 @@ import {
 import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
 
-// ================== API INSTANCE ==================
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -17,13 +15,10 @@ const api = new Api({
   },
 });
 
-// ================== DOM ELEMENTS ==================
-// Profile
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const profileAvatarEl = document.querySelector(".profile__avatar");
 
-// Modals
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const newPostModal = document.querySelector("#new-post-modal");
 const previewModal = document.querySelector("#preview-modal");
@@ -31,7 +26,6 @@ const avatarModal = document.querySelector("#avatar-modal");
 const deleteModal = document.querySelector("#delete-modal");
 const modals = document.querySelectorAll(".modal");
 
-// Forms
 const editProfileForm = document.forms["edit-profile-form"];
 const newPostForm = newPostModal.querySelector(".modal__form");
 const avatarForm = avatarModal.querySelector("#edit-avatar-form");
@@ -41,7 +35,6 @@ const editProfileBtn = document.querySelector(".profile__edit-btn");
 const newPostBtn = document.querySelector(".profile__new-post-btn");
 const avatarModalBtn = document.querySelector(".profile__avatar-btn");
 
-// Form inputs
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
@@ -52,7 +45,6 @@ const newPostCaption = document.querySelector("#caption-input");
 const newPostImageInput = document.querySelector("#card-image-input");
 const avatarInput = avatarForm.querySelector("#profile-avatar-input");
 
-// Submit buttons (after forms exist!)
 const editProfileSubmitBtn = editProfileForm.querySelector(
   'button[type="submit"]'
 );
@@ -60,7 +52,6 @@ const newPostSubmitBtn = newPostForm.querySelector('button[type="submit"]');
 const avatarSubmitBtn = avatarForm.querySelector('button[type="submit"]');
 const deleteSubmitBtn = deleteForm.querySelector('button[type="submit"]');
 
-// Modal close / cancel buttons
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const previewModalCloseBtn = previewModal.querySelector(
@@ -71,17 +62,14 @@ const avatarModalDeleteBtn = deleteModal.querySelector(
   ".modal__delete_close-btn"
 );
 
-// Cards
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
 
-// ================== STATE ==================
 let selectedCard = null;
 let selectedCardId = null;
 
-// ================== DELETE CARD MODAL ==================
 function handleCardDelete(cardElement, cardId) {
   selectedCard = cardElement;
   selectedCardId = cardId;
@@ -116,7 +104,6 @@ deleteForm.addEventListener("submit", (evt) => {
     });
 });
 
-// ================== MODAL HELPERS ==================
 function handleEscClose(evt) {
   if (evt.key === "Escape") {
     const openModal = document.querySelector(".modal_is-opened");
@@ -134,7 +121,6 @@ function closeModal(modal) {
   document.removeEventListener("keydown", handleEscClose);
 }
 
-// Close on overlay / close-btn click
 modals.forEach((modal) => {
   modal.addEventListener("click", (evt) => {
     if (
@@ -147,7 +133,6 @@ modals.forEach((modal) => {
   });
 });
 
-// ================== CARD FUNCTIONS ==================
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -197,7 +182,6 @@ function renderCard(item, method = "prepend") {
   cardsList[method](cardElement);
 }
 
-// ================== INITIAL LOAD ==================
 api
   .getAppInfo()
   .then(([userData, cards]) => {
@@ -208,8 +192,6 @@ api
   })
   .catch(console.error);
 
-// ================== EVENT LISTENERS ==================
-// Open modals
 editProfileBtn.addEventListener("click", () => {
   editProfileNameInput.value = profileNameEl.textContent;
   editDescriptionInput.value = profileDescriptionEl.textContent;
@@ -219,7 +201,6 @@ editProfileBtn.addEventListener("click", () => {
 newPostBtn.addEventListener("click", () => openModal(newPostModal));
 avatarModalBtn.addEventListener("click", () => openModal(avatarModal));
 
-// Close buttons
 editProfileCloseBtn.addEventListener("click", () =>
   closeModal(editProfileModal)
 );
@@ -228,7 +209,6 @@ previewModalCloseBtn.addEventListener("click", () => closeModal(previewModal));
 avatarCloseBtn.addEventListener("click", () => closeModal(avatarModal));
 avatarModalDeleteBtn.addEventListener("click", () => closeModal(deleteModal));
 
-// Form submissions with loading text
 editProfileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const submitBtn = evt.submitter;
@@ -285,5 +265,4 @@ avatarForm.addEventListener("submit", (evt) => {
     .finally(() => setButtonText(submitBtn, false));
 });
 
-// ================== FORM VALIDATION ==================
 enableValidation(validationConfig);

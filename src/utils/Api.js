@@ -4,7 +4,6 @@ class Api {
     this._headers = headers;
   }
 
-  // --- Private helper for handling responses ---
   _handleResponse(res) {
     if (res.ok) {
       return res.json();
@@ -12,13 +11,10 @@ class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  // --- General App Info ---
   getAppInfo() {
-    // Fetch user info and cards at the same time
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
-  // --- User Info ---
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
@@ -41,7 +37,6 @@ class Api {
     }).then(this._handleResponse);
   }
 
-  // --- Cards ---
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
