@@ -35,7 +35,7 @@ View on GitHub Pages: https://lizmary0209.github.io/se_project_spots/
 
 *Project Walkthrough
 
-Video Demo:
+Video Demo: https://www.loom.com/share/f7f4e47e4a8b48c8ac10fa86d0af31fd?sid=0ab2b1ab-061c-482c-b4f0-b85b2fd2e913
 
 *Skills Highlight
 
